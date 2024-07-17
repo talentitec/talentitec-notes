@@ -49,7 +49,7 @@ module.exports = {
             
             const responseNotes = await Notes.find(
                 { company_id, employee_id },
-                { updateAt: 0, company_id: 0, __v: 0 }
+                { createAt: 0, updateAt: 0, company_id: 0, __v: 0 }
                 ).sort({ check: 1, createAt: -1 });
     
             if (!responseNotes)
