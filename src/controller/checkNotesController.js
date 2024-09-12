@@ -1,5 +1,5 @@
 const Notes = require('../model/notesModel');
-const Moment = require('moment-timezone');
+const FormatDate = require('../function/formatDate');
 const Yup = require('yup');
 
 module.exports = { 
@@ -13,7 +13,7 @@ module.exports = {
         if (!(await schema.isValid(req.body)))
             return res.status(400).json({ success: false, message: "Campos obrigatórios não foram preenchidos!" });
 
-        const updateAt = Moment().tz("America/Sao_Paulo").format();
+        const updateAt = FormatDate.formatDate(new Date());
         const check = req.body.check;
         const company_id = req.company_id;
         const employee_id = req.user_id;
